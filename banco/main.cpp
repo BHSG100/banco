@@ -6,14 +6,10 @@ using namespace std;
 
 int main()
 {
-	Conta umaConta;
-	Conta umaOutraConta;
+	Conta umaConta("123","Bruno","123.456.789-10");
 
 	umaConta.depositar(1000);
-	umaOutraConta.depositar(500);
 
-	umaConta.definirONomeTitular("joao da silva");
-
-	cout << "saldo na primeira conta e de: " << umaConta.recuperaSaldo() << endl << "saldo em umaOutraConta e de: " << umaOutraConta.recuperaSaldo() << endl;
+	cout << "saldo na primeira conta e de: " << umaConta.recuperaNomeTitular() << endl;
 	return 0;
 }

@@ -33,21 +33,24 @@ float Conta::recuperaSaldo() const
 	return saldo;
 }
 
-std::string Conta::recuperaCpfTitular()
+std::string Conta::recuperaCpfTitular() const
 {
 	return cpfTitular;
 }
 
-std::string Conta::recuperaNomeTitular()
+std::string Conta::recuperaNomeTitular() const
 {
 	return nomeTitular;
 }
 
-std::string Conta::recuperaNumero()
+std::string Conta::recuperaNumero() const
 {
 	return numero;
 }
-void Conta::definirONomeTitular(std::string nome)
-{
-	nomeTitular = nome;
-}
+
+Conta::Conta(std::string numero, std::string nomeTitular, std::string cpfTitular) :
+	numero(numero), 
+	nomeTitular(nomeTitular),
+	cpfTitular(cpfTitular),
+	saldo(0)
+{}
