@@ -11,5 +11,7 @@ int main()
 	umaConta.depositar(1000);
 
 	cout << "saldo na primeira conta e de: " << umaConta.recuperaNomeTitular() << endl;
-	return 0;
+
+	cout << "O Numero De Contas E De: " << Conta::recuperaNumeroDeContas() << endl;
+
 }
