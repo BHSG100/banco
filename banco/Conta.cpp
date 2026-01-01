@@ -1,15 +1,15 @@
 #include <iostream>
 #include <string>
-#include "conta.hpp"
+#include "Conta.hpp"
+#include "Titular.hpp"
 
 int Conta::numeroDeContas = 0;
 
-Conta::Conta(std::string numero,titular titular) :
+Conta::Conta(std::string numero,Titular titular) :
 	numero(numero), 
 	titular(titular),
 	saldo(0)
 {
-	verificaTamanhoDoNome();
 	numeroDeContas++;
 }
 
@@ -49,16 +49,6 @@ float Conta::recuperaSaldo() const
 	return saldo;
 }
 
-std::string Conta::recuperaCpfTitular() const
-{
-	return cpfTitular;
-}
-
-std::string Conta::recuperaNomeTitular() const
-{
-	return nomeTitular;
-}
-
 std::string Conta::recuperaNumero() const
 {
 	return numero;
@@ -68,13 +58,4 @@ std::string Conta::recuperaNumero() const
 int Conta::recuperaNumeroDeContas()
 {
     return numeroDeContas;
-}
-
-void Conta::verificaTamanhoDoNome()
-{
-	if (nomeTitular.size() < 5)
-	{
-		std::cout << "Nome do titular muito curto !!!" << std::endl;
-		exit(1);
-	}
 }
