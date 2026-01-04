@@ -2,10 +2,10 @@
 #include <string>
 #include "Conta.hpp"
 
-class contaPoupanca : public Conta
+class contaPoupanca final : public Conta
 {
 public:
 	contaPoupanca(std::string numero, Titular titular);
-	void sacar(float valorASacar);
+	~contaPoupanca();
+	float taxaDeSaque() const override;
 };
-

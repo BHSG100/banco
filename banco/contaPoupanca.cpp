@@ -6,22 +6,13 @@ contaPoupanca::contaPoupanca(std::string numero, Titular titular) :
 {
 }
 
-void contaPoupanca::sacar(float valorASacar)
+contaPoupanca::~contaPoupanca() 
 {
-	if (valorASacar < 0)
-	{
-		std::cout << "Não é posivel sacar um valor negativo !!!" << std::endl;
-		return;
-	}
+	std::cout << "Destrutor da conta poupança" << std::endl;
+}
 
-	float tarifaSaque = valorASacar * 0.03;
-	double totalSaque = valorASacar + tarifaSaque;
-
-	if (totalSaque > saldo)
-	{
-		std::cout << "Saldo insuficiente" << std::endl;
-		return;
-	}
-
-	saldo -= totalSaque;
+float contaPoupanca::taxaDeSaque() const
+{
+	std::cout << "Chamando metodo de conta polpanca" << std::endl;
+	return 0.3;
 }

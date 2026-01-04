@@ -15,6 +15,7 @@ Conta::Conta(std::string numero,Titular titular) :
 
 Conta::~Conta() 
 {
+	std::cout << "Destrutor da conta" << std::endl;
 	numeroDeContas--;
 }
 
@@ -26,7 +27,7 @@ void Conta::sacar(float valorASacar)
 		return;
 	}
 
-	float tarifaSaque = valorASacar * 0.05;
+	float tarifaSaque = valorASacar * taxaDeSaque();
 	double totalSaque = valorASacar + tarifaSaque;
 
 	if (totalSaque > saldo) 

@@ -5,12 +5,18 @@
 #include "Cpf.hpp"
 #include "Funcionario.hpp"
 #include "contaPoupanca.hpp"
+#include "contaCorrente.hpp"
 
 using namespace std;
 
+void realizaSaque(Conta& conta, float valorASacar)
+{
+	conta.sacar(valorASacar);
+}
+
 int main()
 {
-	Conta umaConta("123", Titular("Bruno", Cpf("123.456.789-10")));
+	contaCorrente umaConta("123", Titular("Bruno", Cpf("123.456.789-10")));
 
 	umaConta.depositar(1000);
 	umaConta.sacar(200);
