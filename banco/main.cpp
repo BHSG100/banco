@@ -6,6 +6,10 @@
 #include "Funcionario.hpp"
 #include "contaPoupanca.hpp"
 #include "contaCorrente.hpp"
+#include "Caixa.hpp"
+#include "Gerente.hpp"
+#include "Autenticavel.hpp"
+#include "DiaDaSemana.hpp"
 
 using namespace std;
 
@@ -13,10 +17,19 @@ void realizaSaque(Conta& conta, float valorASacar)
 {
 	conta.sacar(valorASacar);
 }
+void fazLogin(Autenticavel& alguem, string senha)
+{
+	if(alguem.autentica(senha))
+	{
+		cout << "Login realizado com sucesso" << endl;
+		return;
+	}
+	cout << "Falha no login" << endl;
+}
 
 int main()
 {
-	contaCorrente umaConta("123", Titular("Bruno", Cpf("123.456.789-10")));
+	contaCorrente umaConta("123", Titular("Bruno", Cpf("123.456.789-10"),"123123"));
 
 	umaConta.depositar(1000);
 	umaConta.sacar(200);
@@ -25,8 +38,12 @@ int main()
 
 	cout << "O Numero De Contas E De: " << Conta::recuperaNumeroDeContas() << endl;
 
-	Funcionario umfuncionario("funcionario1", Cpf("987.654.321-00"), 2500);
-
-	cout << "O Nome Do Funcionario E: " << umfuncionario.recuperaNome() << endl;
+	Gerente umGerente(
+		"Ana dias", 
+		Cpf("000.000.000-00"),
+		5000, 
+		DiaDaSemana::Domingo, 
+		"1234567"
+	);
 
 }
