@@ -11,8 +11,7 @@ contaPoupanca::~contaPoupanca()
 	std::cout << "Destrutor da conta poupança" << std::endl;
 }
 
-float contaPoupanca::taxaDeSaque() const
+float contaPoupanca::taxaDeSaque() const 
 {
-	std::cout << "Chamando metodo de conta polpanca" << std::endl;
-	return 0.3;
+	return 0.03;
 }

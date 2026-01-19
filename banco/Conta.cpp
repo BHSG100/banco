@@ -3,6 +3,7 @@
 #include "Conta.hpp"
 #include "Titular.hpp"
 
+
 int Conta::numeroDeContas = 0;
 
 Conta::Conta(std::string numero,Titular titular) :
@@ -19,12 +20,12 @@ Conta::~Conta()
 	numeroDeContas--;
 }
 
-void Conta::sacar(float valorASacar)
+std::variant <Conta::resultadoSaque, float> Conta::sacar(float valorASacar)
 {
 	if (valorASacar < 0)
 	{
 		std::cout << "Não é posivel sacar um valor negativo !!!" << std::endl;
-		return;
+		return valorNegativo;
 	}
 
 	float tarifaSaque = valorASacar * taxaDeSaque();
@@ -33,10 +34,12 @@ void Conta::sacar(float valorASacar)
 	if (totalSaque > saldo) 
 	{
 		std::cout << "Saldo insuficiente" << std::endl;
-		return;
+		return valorNegativo;
 	}
 
 	saldo -= totalSaque ;
+	return saldo;
+
 }
 
 void Conta::depositar(float valorADepositar)
@@ -47,6 +50,11 @@ void Conta::depositar(float valorADepositar)
 		return;
 	}
 	saldo += valorADepositar;
+}
+
+void Conta::operator+=(float valorADeposiatar)
+{
+	depositar(valorADeposiatar);
 }
 
 float Conta::recuperaSaldo() const 
@@ -63,4 +71,9 @@ std::string Conta::recuperaNumero() const
 int Conta::recuperaNumeroDeContas()
 {
     return numeroDeContas;
+}
+
+bool Conta::operator<(Conta& outro) const 
+{
+	return this->saldo < outro.saldo;
 }

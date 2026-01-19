@@ -7,8 +7,8 @@ class contaCorrente final : public Conta
 {
 public:
 	contaCorrente(std::string numero, Titular titular);
-	float taxaDeSaque() const override;
 	void transferePara(Conta& destino, float valor);
-
+	void operator+=(contaCorrente& contaOrigem);
+	float taxaDeSaque() const override;
 };
 

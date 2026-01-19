@@ -128,15 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Autenticavel.cpp" />
-    <ClCompile Include="Caixa.cpp" />
+    <ClCompile Include="Caixa.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Conta.cpp" />
     <ClCompile Include="contaCorrente.cpp" />
     <ClCompile Include="contaPoupanca.cpp" />
     <ClCompile Include="Cpf.cpp" />
     <ClCompile Include="Funcionario.cpp" />
     <ClCompile Include="Gerente.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Conta.cpp" />
-    <ClCompile Include="Pessoa.cpp" />
     <ClCompile Include="Titular.cpp" />
   </ItemGroup>
   <ItemGroup>

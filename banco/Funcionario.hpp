@@ -4,7 +4,7 @@
 #include "DiaDaSemana.hpp"
 #include "Pessoa.hpp"
 
-class Funcionario : public Pessoa
+class Funcionario : public Pessoa<Cpf>
 {
 private:
 	float salario;

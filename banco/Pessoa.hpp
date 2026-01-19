@@ -1,16 +1,34 @@
 #pragma once
-#include "Cpf.hpp"
 #include <string>
+#include <iostream>
 
+template<typename Documento>
 class Pessoa
 {
 protected:
-	Cpf cpf;
+	Documento documento;
 	std::string nome;
 
 public:
-	Pessoa(std::string nome, Cpf cpf);
+	Pessoa(std::string nome,Documento documento):
+		nome(nome), 
+		documento(documento)
+	{
+		verificaTamanhoDoNome();
+	}
+	std::string recuperaNome() const 
+	{
+		return nome;
+	}
 
 private:
-	void verificaTamanhoDoNome();
+	void verificaTamanhoDoNome()
+	{
+		if(nome.size() < 5)
+		{
+			std::cout << "Nome muito curto" << std::endl;
+			exit(1);
+		}
+	}
+
 };
